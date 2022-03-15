@@ -1,29 +1,44 @@
 # Proyecto del Segundo Cuatrimestre Fundamentos de Programación (Curso  \<XX\>/\<YY\>)
-Autor/a: \<nombre del autor\>   uvus:\<uvus del autor\>
+Autor/a: Javier Blasco Moreno   uvus:javblamor1
 
-Aquí debes añadir la descripción del dataset y un enunciado del dominio del proyecto.
-
+El dataset trata sobre los partidos de la Premier League de la temporada pasada y la actual. Este incluye varias columnas
+en las que se incluye la fecha del partido, el equipo local y visitante, los goles que marcaron cada uno, cuál fue
+el resultado, la probabilidad que tenía de ganar el equipo local...
 
 ## Estructura de las carpetas del proyecto
 
 * **/src**: Contiene los diferentes archivos que forman parte del proyecto. Debe estar estructurado en los siguentes paquetes
-  * **fp.\<dominio\>**: Paquete que contiene los tipos del proyecto.
-  * **fp.\<dominio\>.test**: Paquete que contiene las clases de test del proyecto.
+  * **fp.premierleague**: Paquete que contiene los tipos del proyecto.
+  * **fp.premierleague.test**: Paquete que contiene las clases de test del proyecto.
   * **fp.common**: Paquete que contiene los tipos auxiliares del proyecto
   * **fp.utiles**:  Paquete que contiene las clases de utilidad. 
 * **/data**: Contiene el dataset o datasets del proyecto
-    * **\<dataset1.csv\>**: Añade una descripción genérica del dataset.
-    * **\<dataset2.csv\>**: Añade una descripción del resto de datasets que puedas tener.
+    * **results.csv**: Añade una descripción genérica del dataset.
+* **/doc**: Contiene el enunciado del proyecto
     
 ## Estructura del *dataset*
 
-Aquí debes describir la estructura del dataset explicando qué representan los datos que contiene y la descripción de cada una de las columnas. Incluye también la URL del dataset original.
+La URL del dataset original es: http://kaggle.com/irkaal/english-premier-league-results
 
-El dataset está compuesto por \<N\> columnas, con la siguiente descripción:
+El dataset está compuesto por 16 columnas, con la siguiente descripción:
 
-* **\<columna 1>**: de tipo \<tipo\>, representa....
-* **\<columna 2>**: de tipo \<tipo\>, representa....
-....
+* **Temporada**: de tipo String, representa la temporada a la que pertenece el partido.
+* **Hora**: de tipo LocalDateTime, representa la fecha y hora del partido.
+* **Local**: de tipo String, representa el equipo local.
+* **Visitante**: de tipo String, representa el equipo visitante.
+* **GolesLocal**: de tipo Integer, representa los goles del equipo local.
+* **GolesVisitante**: de tipo Integer, representa los goles del equipo visitante.
+* **Resultado**: de tipo Enumerate, representa si el ganador fue el local (H), visitante (A) o empate (D).
+* **GolesLocalDescanso**: de tipo Integer, representa los goles del equipo local al descanso.
+* **GolesVisitanteDescanso**: de tipo Integer, representa los goles del equipo visitante al descanso.
+* **ResultadoDescanso**: de tipo Enumerate, representa si el ganador al descanso era el local (H), visitante (A) o empate (D).
+* **Arbitro**: de tipo String, representa el árbitro del partido.
+* **AmarillasLocal**: de tipo Integer, representa las amarillas que tuvieron los locales.
+* **AmarillasVisitante**: de tipo Integer, representa las amarillas que tuvieron los visitantes.
+* **RojasLocal**: de tipo Integer, representa las rojas que tuvieron los locales.
+* **RojasVisitante**: de tipo Integer, representa las rojas que tuvieron los visitantes.
+* **Probabilidad**: de tipo Double, representa la probabilidad que tenía el local de ganar el partido.
+* **Lluvia**: de tipo Boolean, representa si llovió durante el partido.
 
 ## Tipos implementados
 
