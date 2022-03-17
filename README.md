@@ -1,5 +1,6 @@
 # Proyecto del Segundo Cuatrimestre Fundamentos de Programación (Curso  \<XX\>/\<YY\>)
-Autor/a: Javier Blasco Moreno   uvus:javblamor1
+Autor/a: Javier Blasco Moreno 
+uvus:javblamor1
 
 El dataset trata sobre los partidos de la Premier League de la temporada pasada y la actual. Este incluye varias columnas
 en las que se incluye la fecha del partido, el equipo local y visitante, los goles que marcaron cada uno, cuál fue
@@ -39,44 +40,53 @@ El dataset está compuesto por 16 columnas, con la siguiente descripción:
 * **RojasVisitante**: de tipo Integer, representa las rojas que tuvieron los visitantes.
 * **Probabilidad**: de tipo Double, representa la probabilidad que tenía el local de ganar el partido.
 * **Lluvia**: de tipo Boolean, representa si llovió durante el partido.
+* **ColorLocal**: de tipo List<String>, representa los colores de la equipación del equipo local.
 
 ## Tipos implementados
-
-Describe aquí los tipos que usas en tu proyecto.
+Uso el tipo Resultado, que es un enum cuyos valores son H, A , D. 
+Un tipo List<String>, estas listas tienen dos o tres elementos.
 
 ### Tipo Base
-Descripción breve del tipo base.
+Añado las propiedades, constructores y métedos pedidos sobre los partidos de la Premier League del dataset
 
 **Propiedades**:
-
-- _propiedad1_, de tipo \<Tipo1\>, consultable. 
-- _propiedad2_, de tipo \<Tipo2\>, consultable y modificable. 
-- ...
-- 
+String temporada, consultable y modificable.
+ LocalDateTime hora, consultable y modificable.
+ String local, consultable y modificable.
+ String visitante, consultable y modificable.
+ Integer golesLocal, consultable y modificable.
+ Integer golesVisitante, consultable y modificable.
+		Resultado resultado, consultable y modificable.
+ Integer golesLocalDescanso, consultable y modificable.
+ Integer golesVisitanteDescanso, consultable y modificable.
+ Resultado resuladoDescanso, consultable y modificable.
+ String arbitro, consultable y modificable.
+ Integer amarillasLocal, consultable y modificable.
+	Integer amarillasVisitante, consultable y modificable.
+ Integer rojasLocal, consultable y modificable.
+ Integer rojasVisitante, consultable y modificable.
+ Double probabilidad, consultable y modificable.
+ Boolean lluvia, consultable y modificable.
+ List<String> colorLocal, consultable y modificable.
+ 
+ La propiedad derivada que he añadido es: public Integer getNumeroDias() con la que saco el número de días que han pasado desde un partido.
+    
 **Constructores**: 
 
-- C1: Descripción del constructor 1.
-- C2: Descripción del constructor 2.
-- ...
+- C1: añade todas las propiedades básicas las restricciones
+- C2: añade las propiedades: local, visitante, golesLocal, golesVisitante. Estas tienen un valor y el resto son nulas.
 
 **Restricciones**:
  
-- R1: Descripción de la restricción 1.
-- R2: Descripción de la restricción 2.
-- ...
-- 
-**Criterio de igualdad**: Describir el criterio de igualdad
+- R1: Comprueba que el equipo local es diferente al visitante.
+- R2: Comprueba que un equipo no puede ganar sin haber marcado ningún gol.
 
-**Criterio de ordenación**: Describir el criterio de ordenación (si lo hay).
+**Criterio de ordenación**: Ordenado por orden cronológico. Si hay dos con fechas y horas iguales, se ordenará por
+ orden alfabético de los equipos locales.
 
-**Otras operaciones**:
  
--	_método 1_: Descripción del método 1.
-- ...
-
-#### Tipos auxiliares
-Descripción de los tipos auxiliares que sean necesarios añadir al proyecto.
-
+ 
+ 
 ### Factoría
 Descripción breve de la factoría.
 
