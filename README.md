@@ -1,4 +1,4 @@
-# Proyecto del Segundo Cuatrimestre Fundamentos de Programación (Curso  \<XX\>/\<YY\>)
+# Proyecto del Segundo Cuatrimestre Fundamentos de Programación (Curso  21/22)
 Autor/a: Javier Blasco Moreno 
 uvus:javblamor1
 
