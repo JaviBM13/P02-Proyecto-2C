@@ -16,22 +16,22 @@ public class PremierLeagues {
 	
 	/**ENTREGA 2**/
 	
-	/*  propiedad de tipo colección para almacenar los elementos del tipo base: 
-	 * elijo Set porque los partidos son únicos y no se pueden repetir*/
+	/*  propiedad de tipo colecciÃ³n para almacenar los elementos del tipo base: 
+	 * elijo Set porque los partidos son Ãºnicos y no se pueden repetir*/
 	private Set<PremierLeague> partidos;
 	
-	/*  Constructor que crea un objeto de tipo contenedor sin ningún elemento en la colección*/
+	/*  Constructor que crea un objeto de tipo contenedor sin ningÃºn elemento en la colecciÃ³n*/
 	public PremierLeagues() {
 		partidos = new HashSet<>();
 	}
 	
-	/* Constructor con todas las propiedades básicas y una colección de objetos del tipo base, que cree un 
-	objeto de tipo contenedor con todos los elementos de la colección.*/
+	/* Constructor con todas las propiedades bÃ¡sicas y una colecciÃ³n de objetos del tipo base, que cree un 
+	objeto de tipo contenedor con todos los elementos de la colecciÃ³n.*/
 	public PremierLeagues(Stream<PremierLeague> objetos) {
 		partidos = objetos.collect(Collectors.toSet());
 	}
 	
-	/* Criterio de igualdad y una representación como cadena*/
+	/* Criterio de igualdad y una representaciÃ³n como cadena*/
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -62,29 +62,28 @@ public class PremierLeagues {
 		return "PremierLeagues" + partidos;
 	}
 	
-	/*Método para obtener el número de elementos*/
+	/*MÃ©todo para obtener el nÃºmero de elementos*/
 	public Integer numeroDePartidos() {
 		return partidos.size();
 	}
 
-	/* Método para añadir un elemento. */
-	public void añadirPartido(PremierLeague partido) {
+	/* MÃ©todo para aÃ±adir un elemento. */
+	public void aÃ±adirPartido(PremierLeague partido) {
 		partidos.add(partido);
 	}
 	
-	/* Método para añadir una colección de elementos.
-	List<PremierLeague> lista = new ArrayList<>();
-	public void añadirListaPartidos(List<PremierLeague> partido) {
-		partidos.add((PremierLeague) lista);
-	}*/
+	/* MÃ©todo para aÃ±adir una colecciÃ³n de elementos.*/
+	public void aÃ±adirListaPartidos(Set<PremierLeague> partido) {
+		partidos.addAll(partido);
+	}
 	
-	/* Método para eliminar un elemento.*/
+	/* MÃ©todo para eliminar un elemento.*/
 	public void eliminarPartido(PremierLeague partido) {
 		partidos.remove(partido);
 	}
 	
 	/*1) A escoger uno de los dos siguientes: existe / para todo.
-	 * Obtengo el número de partidos con lluvia*/
+	 * Obtengo el nÃºmero de partidos con lluvia*/
 	public Integer partidosLluvia() {
 		Integer resultado = 0;
 		for (PremierLeague p: partidos) {
@@ -97,7 +96,7 @@ public class PremierLeagues {
 	
 	
 	/*2) A escoger uno de los tres siguientes: contador / suma / media.
-	 * Elijo el contador y busco cuántos partidos se juegan en una determinada fecha y hora*/
+	 * Elijo el contador y busco cuÃ¡ntos partidos se juegan en una determinada fecha y hora*/
 	public Integer contador(Instant fecha) {
 		Integer cont = 0;
 		for (PremierLeague p:partidos) {
@@ -109,9 +108,9 @@ public class PremierLeagues {
 	}
 	
 	
-	/*3) Una selección con filtrado.
-	 * Filtro por partidos cuyo local tenía el rojo entre los colores 
-	 * de su equipación*/
+	/*3) Una selecciÃ³n con filtrado.
+	 * Filtro por partidos cuyo local tenÃ­a el rojo entre los colores 
+	 * de su equipaciÃ³n*/
 	public List<PremierLeague> seleccion() {
 		List<PremierLeague> resultado = new ArrayList<>();
 		for (PremierLeague p:partidos) {
@@ -123,14 +122,14 @@ public class PremierLeagues {
 	}
 	
 	
-	/*4) Un método de agrupación que devuelva un Map en el que las claves sean una propiedad del tipo base, 
-	y los valores una colección (List, Set, SortedSet) de objetos del tipo base. 
+	/*4) Un mÃ©todo de agrupaciÃ³n que devuelva un Map en el que las claves sean una propiedad del tipo base, 
+	y los valores una colecciÃ³n (List, Set, SortedSet) de objetos del tipo base. 
 	clave: equipo; valor: los goles en cada partido*/
 	public Map<String, List<Integer>> golesPorEquipoLocal() {
 		Map<String, List<Integer>> resultado = new HashMap<>();
 		for (PremierLeague p:partidos) {
 			if (resultado.containsKey(p.getLocal())) {
-				//añadir a la lista de los valores los goles
+				//aÃ±adir a la lista de los valores los goles
 				resultado.get(p.getLocal()).add(p.getGolesLocal());
 			}else {
 				//crear la lista de valores con los goles del primer partido
@@ -143,7 +142,7 @@ public class PremierLeagues {
 	}
 	
 	
-	/*5) Un método de acumulación que devuelva un Map en el que las claves sean una propiedad del tipo 
+	/*5) Un mÃ©todo de acumulaciÃ³n que devuelva un Map en el que las claves sean una propiedad del tipo 
 	base, y los valores el conteo o la suma de los objetos del tipo base almacenados en el contenedor que 
 	tienen como valor esa propiedad.
 	clave: equipo, valor: los goles totales que ha marcado siendo local*/
@@ -151,13 +150,13 @@ public class PremierLeagues {
 		Map<String, Integer> resultado = new HashMap<>();
 		for (PremierLeague p:partidos) {
 			if (resultado.containsKey(p.getLocal())) {
-				//si el local ya está como clave:
+				//si el local ya estÃ¡ como clave:
 				//guardo los goles que ya tengo
 				   int goles = resultado.get(p.getLocal()) + p.getGolesLocal();
 				//sumo los goles de este partido a los anteriores
 				   resultado.put(p.getLocal(), goles);
 				}else {
-					//si el local no está como clave, poner el local en la clave y los goles en el valor
+					//si el local no estÃ¡ como clave, poner el local en la clave y los goles en el valor
 				    resultado.put(p.getLocal(), p.getGolesLocal());
 				}
 		}
