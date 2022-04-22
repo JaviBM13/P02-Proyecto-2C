@@ -54,6 +54,16 @@ public class PremierLeagueTest {
 		ejemplo2.añadirPartido(ejemplo1);
 		System.out.println("Método añadirPartido: " + ejemplo2);
 		
+		/*Pruebo añadirListaPartidos*/
+		//Creo un set vacío
+		Set<PremierLeague> a = new HashSet<>();
+		//Pongo los elementos que añado posteriormente al Set
+		PremierLeague e = new PremierLeague("2021-22", Instant.now(), "Man United", "Liverpool", 3, 0, 
+				Resultado.H, 1, 0, Resultado.H, "A Taylor", 1, 2, 0, 0, 40.0, true, lista);
+		a.add(e);
+		ejemplo2.añadirListaPartidos(a);
+		System.out.println("Método añadirListaPartidos: " + ejemplo2);
+		
 		/*Pruebo numeroDePartidos*/
 		System.out.println("Método numeroDePartidos: " + ejemplo2.numeroDePartidos());
 		
