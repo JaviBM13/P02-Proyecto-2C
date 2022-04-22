@@ -103,6 +103,7 @@ He añadido la clase FactoriaPremierLeagues donde realizo el parseo de todos los
 * **partidos**: propiedad de tipo colección para almacenar los elementos del tipo base
 * **numeroDePartidos()**: Método para obtener el número de elementos
 * **añadirPartido(PremierLeague partido)**: Método para añadir un elemento.
+* **añadirListaPartidos(Set<PremierLeague> partido)**: Método para añadir una colección de elementos.
 * **eliminarPartido(PremierLeague partido)**: Método para eliminar un elemento.
 
 **Tratamientos secuenciales con bucle**
